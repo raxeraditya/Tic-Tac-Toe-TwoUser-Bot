@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Player } from '../types/game';
+import { motion } from "framer-motion";
+import { Player } from "../types/game";
 
 interface SquareProps {
   value: Player | null;
@@ -18,8 +18,16 @@ export function Square({ value, onClick, isWinning, position }: SquareProps) {
   return (
     <motion.button
       className={`w-full h-full flex items-center justify-center text-4xl md:text-6xl font-bold border-2 rounded-lg
-        ${isWinning ? 'border-green-500 dark:border-green-400' : 'border-gray-300 dark:border-gray-600'}
-        ${value ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700'}
+        ${
+          isWinning
+            ? "border-green-500 dark:border-green-400"
+            : "border-gray-300 dark:border-gray-600"
+        }
+        ${
+          value
+            ? "cursor-not-allowed"
+            : "cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+        }
         transition-colors duration-200`}
       onClick={onClick}
       variants={variants}
@@ -32,7 +40,11 @@ export function Square({ value, onClick, isWinning, position }: SquareProps) {
         <motion.span
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className={value === 'X' ? 'text-blue-500 dark:text-blue-400' : 'text-red-500 dark:text-red-400'}
+          className={
+            value === "X"
+              ? "text-blue-500 dark:text-blue-400"
+              : "text-red-500 dark:text-red-400"
+          }
         >
           {value}
         </motion.span>

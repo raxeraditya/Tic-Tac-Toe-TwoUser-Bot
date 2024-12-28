@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Player, Players } from '../types/game';
+import { motion } from "framer-motion";
+import { Player, Players } from "../types/game";
 
 interface GameStatusProps {
   currentPlayer: Player;
@@ -8,13 +8,19 @@ interface GameStatusProps {
   players: Players;
 }
 
-export function GameStatus({ currentPlayer, winningLine, isDraw, players }: GameStatusProps) {
-  const currentPlayerName = currentPlayer === 'X' ? players.playerX : players.playerO;
+export function GameStatus({
+  currentPlayer,
+  winningLine,
+  isDraw,
+  players,
+}: GameStatusProps) {
+  const currentPlayerName =
+    currentPlayer === "X" ? players.playerX : players.playerO;
   let message = `Current player: ${currentPlayerName} (${currentPlayer})`;
-  
+
   if (winningLine) {
-    const winner = currentPlayer === 'X' ? players.playerO : players.playerX;
-    message = `${winner} (${currentPlayer === 'X' ? 'O' : 'X'}) wins!`;
+    const winner = currentPlayer === "X" ? players.playerX : players.playerO;
+    message = `${winner} (${currentPlayer === "X" ? "X" : "O"}) wins!`;
   } else if (isDraw) {
     message = "It's a draw!";
   }
